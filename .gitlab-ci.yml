@@ -1,0 +1,18 @@
+stages :
+  - build
+  - deploy
+
+setup-gunicorn :
+  stage : build
+  script :
+    - python3 -m venv flask-env
+    - source flask-env/bin/activate
+    - pip install requirements.txt
+
+deploy-nginx :
+  stage : deploy
+  script : 
+    - sudo supervisorctl reread
+    - sudo service supervisor restart
+    - sudo supervisorctl status
+    
