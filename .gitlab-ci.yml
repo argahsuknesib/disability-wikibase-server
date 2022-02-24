@@ -9,7 +9,7 @@ setup-gunicorn :
     - set https_proxy=http://cache.univ-st-etienne.fr:3128
     - cp -r /var/www/html/disability-wiki/python-venv /var/www/html/disability-wikibase/server/
     - source /var/www/html/disability-wiki/python-venv/bin/activate
-    - pip install requirements.txt
+    - pip install -r requirements.txt
 
 deploy-nginx :
   stage : deploy
