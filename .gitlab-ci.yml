@@ -7,8 +7,8 @@ setup-gunicorn :
   script :
     - set http_proxy=http://cache.univ-st-etienne.fr:3128
     - set https_proxy=http://cache.univ-st-etienne.fr:3128
-    - python3 -m venv flask-env
-    - source flask-env/bin/activate
+    - cp -r /var/www/html/disability-wiki/python-venv
+    - source var/www/html/disability-wiki/python-venv/bin/activate
     - pip install requirements.txt
 
 deploy-nginx :
