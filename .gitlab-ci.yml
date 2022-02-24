@@ -14,6 +14,7 @@ setup-gunicorn :
 deploy-nginx :
   stage : deploy
   script : 
+    - sudo service supervisor start
+    - sudo service supervisor reread
     - sudo service supervisor restart
-    - sudo supervisorctl reread
-    - sudo supervisorctl status
+    - sudo service supervisor status
