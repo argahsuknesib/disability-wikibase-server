@@ -5,6 +5,8 @@ stages :
 setup-gunicorn :
   stage : build
   script :
+    - set http_proxy=http://cache.univ-st-etienne.fr:3128
+    - set https_proxy=http://cache.univ-st-etienne.fr:3128
     - python3 -m venv flask-env
     - source flask-env/bin/activate
     - pip install requirements.txt
@@ -15,4 +17,3 @@ deploy-nginx :
     - sudo supervisorctl reread
     - sudo service supervisor restart
     - sudo supervisorctl status
-    
